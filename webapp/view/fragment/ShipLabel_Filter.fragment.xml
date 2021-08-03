@@ -1,0 +1,14 @@
+<core:FragmentDefinition 
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+    <smartFilterBar:SmartFilterBar 
+        id="ship-label-filter-id"
+        entitySet="ZEWM_C_SHIP_LABEL" 
+        persistencyKey="ShipLabel_SmartFilter_Explored">
+    </smartFilterBar:SmartFilterBar>
+
+</core:FragmentDefinition>

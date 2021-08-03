@@ -1,0 +1,94 @@
+<core:FragmentDefinition 
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:smartField="sap.ui.comp.smartfield" 
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+    <smartTable:SmartTable 
+        id="ship-label-table-id" 
+        entitySet="ZEWM_C_SHIP_LABEL" 
+        smartFilterId="ship-label-filter-id" 
+        tableType="Table" 
+        useExportToExcel="true"
+        useTablePersonalisation="true" 
+        header="{i18n>worklistRadioBtnShippingLabel}" 
+        showRowCount="true"
+        enableAutoBinding="true"
+        beforeRebindTable=".onBeforeRebindTable"
+        editTogglable="false"
+        app:useSmartToggle="true"
+        app:target="ShipLabel">
+
+        <!-- over flow toolbar -->
+        <smartTable:customToolbar>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                    <Button 
+                        text="{i18n>worklistPrintBtn}" 
+                        tooltip="{i18n>worklistPrintBtn}" 
+                        visible="{=!${oViewModel>/edit}}"
+                        press=".onPrintPress"
+                        app:target="ShipLabel" />
+                    <Button 
+                        text="{i18n>worklistPalletBtn}" 
+                        tooltip="{i18n>worklistPalletBtn}" 
+                        visible="{=!${oViewModel>/edit}}"
+                        press=".onPalletRecalcualatePress"
+                        app:target="ShipLabel" />
+                    <Button 
+                        text="{i18n>worklistEditBtn}" 
+                        tooltip="{i18n>worklistEditBtn}" 
+                        visible="{=!${oViewModel>/edit}}"
+                        press=".onEditPress"
+                        type="Emphasized"
+                        app:target="ShipLabel" />
+                    <Button 
+                        text="{i18n>worklistSaveBtn}" 
+                        tooltip="{i18n>worklistSaveBtn}" 
+                        visible="{oViewModel>/edit}"
+                        press=".onSavePress"
+                        type="Emphasized"
+                        app:target="ShipLabel" />
+                    <Button 
+                        text="{i18n>worklistCancelBtn}" 
+                        tooltip="{i18n>worklistCancelBtn}" 
+                        visible="{oViewModel>/edit}"
+                        press=".onCancelPress"
+                        app:target="ShipLabel" />
+                <ToolbarSeparator />
+            </OverflowToolbar>
+        </smartTable:customToolbar>
+
+        <!-- custom columns editable -->
+        <table:Table selectionMode="None" visibleRowCountMode="Auto" threshold="999999">
+            <table:columns>
+                <!-- <table:Column width="200px" hAlign="End">
+                    <table:customData>
+                        <core:CustomData 
+                            key="p13nData"
+                            value='\{"columnKey": "OdoQuantity", "columnIndex":"3"}' />
+                    </table:customData>
+                    <Text text="{/#ZEWM_C_SHIP_LABELType/OdoQuantity/@sap:label}" />
+                    <table:template>
+                        <smartField:SmartField value="{OdoQuantity}" editable="{oViewModel>/edit}"/>
+                    </table:template>
+                </table:Column> -->
+                <table:Column width="200px" hAlign="Begin">
+                    <table:customData>
+                        <core:CustomData 
+                            key="p13nData"
+                            value='\{"columnKey": "Carton", "columnIndex":"4"}' />
+                    </table:customData>
+                    <Text text="{/#ZEWM_C_SHIP_LABELType/Carton/@sap:label}" />
+                    <table:template>
+                        <smartField:SmartField value="{Carton}" editable="{oViewModel>/edit}"/>
+                    </table:template>
+                </table:Column>
+            </table:columns>
+        </table:Table>
+	</smartTable:SmartTable>
+
+</core:FragmentDefinition>

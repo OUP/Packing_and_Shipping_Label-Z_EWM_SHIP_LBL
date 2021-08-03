@@ -1,0 +1,32 @@
+<mvc:View
+	controllerName="oup.ewm.zewmshiplbl.controller.Worklist"
+	xmlns="sap.m"
+    xmlns:f="sap.f"
+	xmlns:mvc="sap.ui.core.mvc">
+
+    <f:DynamicPage >
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+				    <VBox id="dynamic-radio-btn-id" fitContainer="true" class="sapUiTinyMarginTopBottom"></VBox>
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title> 
+
+		<!-- DynamicPage Header -->
+		<f:header>
+			<f:DynamicPageHeader pinnable="true">
+	           <VBox id="dynamic-header-container-id" fitContainer="true"></VBox>
+            </f:DynamicPageHeader>
+		</f:header>
+
+        <!-- DynamicPage Content -->
+		<f:content>
+            <VBox id="dyanmic-page-content-id"  fitContainer="true" /> 
+	    </f:content>
+			
+        <!-- DynamicPage Footer -->
+	</f:DynamicPage>
+
+</mvc:View>

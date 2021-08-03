@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZEWMSHIPLABEL_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="FetchGuid" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="FetchFlag"/>
+                </Key>
+                <Property Name="FetchFlag" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Fetch Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Guid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Guid" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="OdoPallet" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Outbounddeliveryorder"/>
+                    <PropertyRef Name="Outbounddeliveryorderitem"/>
+                </Key>
+                <Property Name="Outbounddeliveryorder" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Document Number" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Outbounddeliveryorderitem" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Item Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Productnumber" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Product" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Odoquantity" Type="Edm.Decimal" Nullable="false" Precision="31" Scale="14" sap:unicode="false" sap:unit="Odouom" sap:label="Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Odouom" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unit of Measure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Sales Order" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Sales Order Item" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="S4delivery" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Delivery" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="S4deliveryitem" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Item" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Productdesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Item Descr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Wave" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Wave" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Warehousenumber" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Warehouse No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Shiptoparty" Type="Edm.String" Nullable="false" MaxLength="28" sap:unicode="false" sap:label="Busn. Partner" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Invoice" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Billing Doc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Guid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Carton" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Carton Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pallet" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Pallet Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="OdoPalletNum" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ZreqNo"/>
+                    <PropertyRef Name="Docno"/>
+                    <PropertyRef Name="Itemno"/>
+                </Key>
+                <Property Name="ZreqNo" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID" sap:creatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Docno" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Document Number" sap:creatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Itemno" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Item Number" sap:creatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Carton" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Carton Number" sap:creatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pallet" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Pallet Number" sap:creatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="OdoPdf" m:HasStream="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="FileID"/>
+                </Key>
+                <Property Name="FileID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Pdf" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZEWMSHIPLABEL_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="FetchGuidSet" EntityType="ZEWMSHIPLABEL_SRV.FetchGuid" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="OdoPalletSet" EntityType="ZEWMSHIPLABEL_SRV.OdoPallet" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="OdoPalletNumSet" EntityType="ZEWMSHIPLABEL_SRV.OdoPalletNum" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="OdoPdfSet" EntityType="ZEWMSHIPLABEL_SRV.OdoPdf" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://s4dbasdev110:443/sap/opu/odata/sap/ZEWMSHIPLABEL_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://s4dbasdev110:443/sap/opu/odata/sap/ZEWMSHIPLABEL_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

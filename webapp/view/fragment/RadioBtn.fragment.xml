@@ -1,0 +1,13 @@
+<core:FragmentDefinition 
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <VBox>
+        <Label labelFor="radio-btn-group-id" text="{i18n>worklistPackingListTitle}" />
+		<RadioButtonGroup id="radio-btn-group-id" columns="3" valueState="Warning" select=".onRadioBtnSelectChange" >
+		    <RadioButton text="{i18n>worklistRadioBtnPackingListDomestic}" app:target="PackingListDomestic"/>
+			<RadioButton text="{i18n>worklistRadioBtnPackingListExport}" app:target="PackingListExport"/>
+			<RadioButton text="{i18n>worklistRadioBtnShippingLabel}" app:target="ShipLabel"/>
+		</RadioButtonGroup>
+	 </VBox>
+ </core:FragmentDefinition>
