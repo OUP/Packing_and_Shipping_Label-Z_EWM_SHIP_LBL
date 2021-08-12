@@ -1,0 +1,87 @@
+<core:FragmentDefinition 
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:smartField="sap.ui.comp.smartfield" 
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+    <smartTable:SmartTable 
+        id="dom-table-id" 
+        entitySet="ZEWM_C_PACK_DOMESTIC" 
+        smartFilterId="dom-filter-id" 
+        tableType="Table" 
+        useExportToExcel="true"
+        useTablePersonalisation="true" 
+        header="{oViewModel>/tableTitle}" 
+        showRowCount="true"
+        enableAutoBinding="false"
+        beforeRebindTable=".onBeforeRebindTable"
+        editTogglable="false"
+        app:useSmartToggle="true">
+
+        <!-- over flow toolbar -->
+        <smartTable:customToolbar>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                    <Button 
+                        text="{i18n>worklistPrintBtn}" 
+                        tooltip="{i18n>worklistPrintBtn}"
+                        press=".onDomPrintPress" />
+                <ToolbarSeparator />
+            </OverflowToolbar>
+        </smartTable:customToolbar>
+
+        <smartTable:layoutData>
+            <FlexItemData growFactor="1" baseSize="0%"/>
+        </smartTable:layoutData>
+
+        <!-- custom columns editable -->
+        <table:Table selectionMode="None" visibleRowCountMode="Auto" threshold="999999">
+            <!-- <table:columns>
+                <table:Column hAlign="End" filterProperty="OdoQuantity">
+                    <table:customData>
+                        <core:CustomData 
+                            key="p13nData"
+                            value='\{"columnKey": "OdoQuantity", "columnIndex":"3"}' />
+                    </table:customData>
+                    <Text text="{/#ZEWM_C_PACK_DOMESTICType/OdoQuantity/@sap:label}" />
+                    <table:template>
+                        <HBox>
+                            <smartField:SmartField 
+                                value="{OdoQuantity}" 
+                                textAlign="End" 
+                                visible="{=!${oViewModel>/edit}}"/>
+                            <Input 
+                                value="{
+                                    path: 'OdoQuantity', 
+                                    type: 'sap.ui.model.odata.type.Decimal', 
+                                    constraints: { precision: 31, scale: 2 }
+                                }" 
+                                description="{OdoUom}" 
+                                fieldWidth="80%" 
+                                textAlign="End" 
+                                visible="{oViewModel>/edit}"/>
+                        </HBox>
+                    </table:template>
+                </table:Column>
+                <table:Column hAlign="End">
+                    <table:customData>
+                        <core:CustomData 
+                            key="p13nData"
+                            value='\{"columnKey": "Carton", "columnIndex":"4"}' />
+                    </table:customData>
+                    <Text text="{/#ZEWM_C_PACK_DOMESTICType/Carton/@sap:label}" />
+                    <table:template>
+                        <HBox>
+                            <smartField:SmartField value="{Carton}" visible="{=!${oViewModel>/edit}}"/>
+                            <Input value="{Carton}" textAlign="End" visible="{oViewModel>/edit}"/>
+                        </HBox>
+                    </table:template>
+                </table:Column>
+            </table:columns> -->
+        </table:Table>
+	</smartTable:SmartTable>
+
+</core:FragmentDefinition>

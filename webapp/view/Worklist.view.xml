@@ -23,7 +23,7 @@
 
         <!-- DynamicPage Content -->
 		<f:content>
-            <VBox id="dyanmic-page-content-id"  fitContainer="true" /> 
+            <VBox id="dyanmic-page-content-id" fitContainer="true" /> 
 	    </f:content>
 			
         <!-- DynamicPage Footer -->

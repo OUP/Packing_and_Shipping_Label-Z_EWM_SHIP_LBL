@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core">
+
+   <Dialog
+        title="{oViewModel>/pdfDialogTitle}"
+        stretch="false"
+        contentHeight="600px"
+        contentWidth="80%"
+        class="sapUiSizeCompact">
+        
+        <!-- content -->
+        <VBox fitContainer="true">
+            <PDFViewer 
+                source="{oViewModel>/pdfSourceURI}" 
+                showDownloadButton="false" height="600px">
+                <layoutData>
+                    <FlexItemData growFactor="1" />
+                </layoutData>
+            </PDFViewer>
+        </VBox>
+
+        <!-- footer buttons -->
+        <buttons>
+            <Button text="{i18n>worklistDownloadBtn}" press=".onDownload"/>
+            <Button text="{i18n>worklistCloseBtn}" press=".closeDialog" type="Emphasized"/>
+        </buttons>
+   </Dialog>
+
+</core:FragmentDefinition>

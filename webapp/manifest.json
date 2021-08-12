@@ -27,6 +27,21 @@
         "settings": {
           "localUri": "ZEWMSHIPLABEL_ANNO_MDL.xml"
         }
+      },
+      "domService": {
+        "uri": "/sap/opu/odata/sap/ZEWMPACKLIST_DOM_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": ["ZEWMPACKLIST_DOM_ANNO_MDL"],
+          "odataVersion": "2.0"
+        }
+      },
+      "ZEWMPACKLIST_DOM_ANNO_MDL": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZEWMPACKLIST_DOM_ANNO_MDL',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "ZEWMPACKLIST_DOM_ANNO_MDL.xml"
+        }
       }
     }
   },
@@ -88,6 +103,16 @@
           "useBatch": true,
           "refreshAfterChange": true
         }
+      },
+      "dom": {
+        "dataSource": "domService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Request",
+          "useBatch": true,
+          "refreshAfterChange": true
+        }
       }
     },
 
@@ -109,11 +134,6 @@
           "pattern": "",
           "name": "worklist",
           "target": ["worklist"]
-        },
-        {
-          "pattern": "OdoPalletSet/{objectId}",
-          "name": "object",
-          "target": ["object"]
         }
       ],
 
@@ -123,16 +143,6 @@
           "viewId": "worklist",
           "viewLevel": 1,
           "title": "{i18n>worklistViewTitle}"
-        },
-        "object": {
-          "viewName": "Object",
-          "viewId": "object",
-          "viewLevel": 2,
-          "title": "{i18n>objectViewTitle}"
-        },
-        "objectNotFound": {
-          "viewName": "ObjectNotFound",
-          "viewId": "objectNotFound"
         },
         "notFound": {
           "viewName": "NotFound",

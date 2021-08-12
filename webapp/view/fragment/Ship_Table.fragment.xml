@@ -14,13 +14,12 @@
         tableType="Table" 
         useExportToExcel="true"
         useTablePersonalisation="true" 
-        header="{i18n>worklistRadioBtnShippingLabel}" 
+        header="{oViewModel>/tableTitle}" 
         showRowCount="true"
-        enableAutoBinding="true"
+        enableAutoBinding="false"
         beforeRebindTable=".onBeforeRebindTable"
         editTogglable="false"
-        app:useSmartToggle="true"
-        app:target="ShipLabel">
+        app:useSmartToggle="true">
 
         <!-- over flow toolbar -->
         <smartTable:customToolbar>
@@ -30,42 +29,46 @@
                         text="{i18n>worklistPrintBtn}" 
                         tooltip="{i18n>worklistPrintBtn}" 
                         visible="{=!${oViewModel>/edit}}"
-                        press=".onPrintPress"
-                        app:target="ShipLabel" />
-                    <Button 
-                        text="{i18n>worklistPalletBtn}" 
-                        tooltip="{i18n>worklistPalletBtn}" 
-                        visible="{=!${oViewModel>/edit}}"
-                        press=".onPalletRecalcualatePress"
-                        app:target="ShipLabel" />
+                        press=".onPrintPress" />
                     <Button 
                         text="{i18n>worklistEditBtn}" 
                         tooltip="{i18n>worklistEditBtn}" 
                         visible="{=!${oViewModel>/edit}}"
                         press=".onEditPress"
-                        type="Emphasized"
-                        app:target="ShipLabel" />
+                        type="Emphasized" />
+                    <Button 
+                        text="{i18n>worklistCopyBtn}" 
+                        tooltip="{i18n>worklistCopyBtn}" 
+                        visible="{oViewModel>/edit}"
+                        press=".onCopyPress" />
+                    <Button 
+                        text="{i18n>worklistDeleteBtn}" 
+                        tooltip="{i18n>worklistDeleteBtn}" 
+                        visible="{oViewModel>/edit}"
+                        press=".onDeletePress" />    
                     <Button 
                         text="{i18n>worklistSaveBtn}" 
                         tooltip="{i18n>worklistSaveBtn}" 
                         visible="{oViewModel>/edit}"
                         press=".onSavePress"
-                        type="Emphasized"
-                        app:target="ShipLabel" />
+                        type="Emphasized" />
                     <Button 
                         text="{i18n>worklistCancelBtn}" 
                         tooltip="{i18n>worklistCancelBtn}" 
                         visible="{oViewModel>/edit}"
-                        press=".onCancelPress"
-                        app:target="ShipLabel" />
+                        press=".onCancelPress" />
                 <ToolbarSeparator />
             </OverflowToolbar>
         </smartTable:customToolbar>
 
+        <smartTable:layoutData>
+            <FlexItemData growFactor="1" baseSize="0%"/>
+        </smartTable:layoutData>
+
         <!-- custom columns editable -->
-        <table:Table selectionMode="None" visibleRowCountMode="Auto" threshold="999999">
+        <table:Table selectionMode="Single" visibleRowCountMode="Auto" threshold="999999">
             <table:columns>
-                <!-- <table:Column width="200px" hAlign="End">
+                <table:Column hAlign="End" filterProperty="OdoQuantity">
                     <table:customData>
                         <core:CustomData 
                             key="p13nData"
@@ -73,10 +76,25 @@
                     </table:customData>
                     <Text text="{/#ZEWM_C_SHIP_LABELType/OdoQuantity/@sap:label}" />
                     <table:template>
-                        <smartField:SmartField value="{OdoQuantity}" editable="{oViewModel>/edit}"/>
+                        <HBox>
+                            <smartField:SmartField 
+                                value="{OdoQuantity}" 
+                                textAlign="End" 
+                                visible="{=!${oViewModel>/edit}}"/>
+                            <Input 
+                                value="{
+                                    path: 'OdoQuantity', 
+                                    type: 'sap.ui.model.odata.type.Decimal', 
+                                    constraints: { precision: 31, scale: 2 }
+                                }" 
+                                description="{OdoUom}" 
+                                fieldWidth="80%" 
+                                textAlign="End" 
+                                visible="{oViewModel>/edit}"/>
+                        </HBox>
                     </table:template>
-                </table:Column> -->
-                <table:Column width="200px" hAlign="Begin">
+                </table:Column>
+                <table:Column hAlign="End">
                     <table:customData>
                         <core:CustomData 
                             key="p13nData"
@@ -84,7 +102,10 @@
                     </table:customData>
                     <Text text="{/#ZEWM_C_SHIP_LABELType/Carton/@sap:label}" />
                     <table:template>
-                        <smartField:SmartField value="{Carton}" editable="{oViewModel>/edit}"/>
+                        <HBox>
+                            <smartField:SmartField value="{Carton}" visible="{=!${oViewModel>/edit}}"/>
+                            <Input value="{Carton}" textAlign="End" visible="{oViewModel>/edit}"/>
+                        </HBox>
                     </table:template>
                 </table:Column>
             </table:columns>
