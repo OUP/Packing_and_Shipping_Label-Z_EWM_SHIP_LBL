@@ -72,7 +72,7 @@
                     <table:customData>
                         <core:CustomData 
                             key="p13nData"
-                            value='\{"columnKey": "OdoQuantity", "columnIndex":"3"}' />
+                            value='\{"columnKey": "OdoQuantity", "columnIndex":"4"}' />
                     </table:customData>
                     <Text text="{/#ZEWM_C_SHIP_LABELType/OdoQuantity/@sap:label}" />
                     <table:template>
@@ -98,7 +98,7 @@
                     <table:customData>
                         <core:CustomData 
                             key="p13nData"
-                            value='\{"columnKey": "Carton", "columnIndex":"4"}' />
+                            value='\{"columnKey": "Carton", "columnIndex":"5"}' />
                     </table:customData>
                     <Text text="{/#ZEWM_C_SHIP_LABELType/Carton/@sap:label}" />
                     <table:template>

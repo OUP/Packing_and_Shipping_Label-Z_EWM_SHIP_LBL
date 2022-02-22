@@ -512,11 +512,12 @@ sap.ui.define(
 
             if (_aTableItems[i].__metadata.id === oChange.__metadata.id) {
               // update quantity
-              if (oChange.OdoQuantity) {
+              if (oChange.OdoQuantity !== undefined) {
                 _aTableItems[i].OdoQuantity = oChange.OdoQuantity;
               }
+
               // update carton numbers
-              if (oChange.Carton) {
+              if (oChange.Carton !== undefined) {
                 _aTableItems[i].Carton = oChange.Carton;
               }
               break;
